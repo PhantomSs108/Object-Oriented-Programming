@@ -10,8 +10,6 @@ public class App
         double b = 0.000;
         Scanner scanner = new Scanner(System.in);
         char command = ' ';
-        double input = ' ';
-
 
         while (command != 'q') {
             printMenu(a, b);
