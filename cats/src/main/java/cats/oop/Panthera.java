@@ -4,7 +4,6 @@ import java.util.*;
 public class Panthera extends PantheraGPS {
     
     private int weight;
-    private boolean sleepsInTrees;
     
     private Random randWeight = new Random();
     private Random randSpeed = new Random();
@@ -16,10 +15,6 @@ public class Panthera extends PantheraGPS {
         // initialize attributes
         this.setSpecies("panthera");
         weight = randWeight.nextInt((590) + 1) + 10;    
-    }
-
-    protected void setSleepsInTrees(boolean sleepsInTrees) {
-        this.sleepsInTrees = sleepsInTrees; 
     }
 
     // serializes attributes into a string

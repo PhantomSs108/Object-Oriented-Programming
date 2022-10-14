@@ -7,7 +7,6 @@ public class Lion extends Panthera {
         super(name);
         // initialize attributes
         this.setSpecies("lion");
-        setSleepsInTrees(false);
     }
     // serializes attributes into a string
     @Override // override superclass method

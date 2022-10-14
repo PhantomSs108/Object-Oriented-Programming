@@ -119,6 +119,7 @@ and added to the menu.
     }
 
     public void executeFind(LinkedList<Panthera> catList) {
+        boolean found = false;
         System.out.println();
         System.out.print("Enter the name of the cat to be found: ");
         String name = input.nextLine();
@@ -126,8 +127,12 @@ and added to the menu.
         for (int i = 0; i < catList.size(); i++) {
             if (catList.get(i).name().toUpperCase().contains(name.toUpperCase())) {
                 System.out.println(catList.get(i).toString());
+                found = true;
             }
         }
+
+        if (!found) 
+            System.out.println("No cat was found");
     }
 
     public void executeDelete(LinkedList<Panthera> catList) {  
