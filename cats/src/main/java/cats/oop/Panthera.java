@@ -14,8 +14,12 @@ public class Panthera extends PantheraGPS {
         // call the super-class (parent) to instatiate it
         super(name);
         // initialize attributes
-        this.setSpecies("panthera")
-        weight = randWeight.nextInt((590) + 1) + 10;    }
+        this.setSpecies("panthera");
+        weight = randWeight.nextInt((590) + 1) + 10;    
+    }
+
+    protected void setSleepsInTrees(boolean sleepsInTrees) {
+        this.sleepsInTrees = sleepsInTrees; 
     }
 
     // serializes attributes into a string
@@ -36,11 +40,11 @@ public class Panthera extends PantheraGPS {
     }
 
     public void roar() {
-        System.out.print("Rrrrrrrrroooooooaaaaarrrrr!")
+        System.out.print("Rrrrrrrrroooooooaaaaarrrrr!");
     }
 
     public float speed() {
-        int speed = rand.nextInt((50) + 1);
+        int speed = randSpeed.nextInt((50) + 1);
         return speed;
     }
 

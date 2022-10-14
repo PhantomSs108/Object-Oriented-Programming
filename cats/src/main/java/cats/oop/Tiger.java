@@ -1,5 +1,4 @@
 package cats.oop;
-import java.util.*;
 
 public class Tiger extends Panthera {
     // constructor
@@ -8,7 +7,7 @@ public class Tiger extends Panthera {
         super(name);
         // initialize attributes
         this.setSpecies("tiger");
-        sleepsInTrees = false;
+        setSleepsInTrees(false);
     }
     // serializes attributes into a string
     @Override // override superclass method

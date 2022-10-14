@@ -1,17 +1,15 @@
 package cats.oop;
 
-import java.util.*;
-
-public class Tiger extends Panthera {
+public class Jaguar extends Panthera {
     
     
     // constructor
-    public Tiger(String name) {
+    public  Jaguar(String name) {
         // call the super-class (parent) to instatiate it
         super(name);
         // initialize attributes
         this.setSpecies("tiger");
-        sleepsInTrees = true;
+        setSleepsInTrees(true);
     }
     // serializes attributes into a string
     @Override // override superclass method

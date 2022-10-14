@@ -74,14 +74,6 @@ public class App
         return command;
     }
 
-    private static char getInput(Scanner scanner) {
-        char input = ' ';
-        System.out.print("Enter a number: ");
-        String rawinput = scanner.nextLine();
-
-        if 
-    }
-
     private static void printDashes() {
         for (int i = 0; i < 60; i++)
             System.out.print("-");
