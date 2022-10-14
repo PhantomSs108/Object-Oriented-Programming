@@ -6,8 +6,8 @@ public class Panthera extends PantheraGPS {
     private int weight;
     private boolean sleepsInTrees;
     
-    private Random randWeight;
-    private Random randSpeed;
+    private Random randWeight = new Random();
+    private Random randSpeed = new Random();
 
     // constructor
     public Panthera(String name) {

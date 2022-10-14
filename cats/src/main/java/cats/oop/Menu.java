@@ -60,8 +60,10 @@ and added to the menu.
                 break;
             case 'd': 
                 executeDelete(catList);
+                break;
             case 'f':
                 executeFind(catList);
+                break;
             case 'l':
                 executeList(catList);
                 break;
@@ -94,31 +96,26 @@ and added to the menu.
     }
 
     public Panthera getNewCat(String name) {
-        try {
         System.out.print("Enter " + name + "'s species: ");
         String species = input.nextLine();
-        species = species.toLowerCase();
+        species = species.toUpperCase();
         Panthera result = new Tiger(name);
         
         switch (species) {
-            case "tiger":
+            case "TIGER":
                 result = new Tiger(name);
                 break;
-            case "jaguar":
+            case "JAGUAR":
                 result = new Jaguar(name);
                 break;
-            case "lion":
+            case "LION":
                 result = new Lion(name);
                 break;
             default:
-                System.out.print("Error: Cat type does not exist. Try again.");
-                getNewCat(name);
+                System.out.println("Error: Cat type does not exist. Try again.");
+                return getNewCat(name);
             }
         return result;
-        } catch(InputMismatchException e) {
-            System.out.print("Error: the name entered is a not a word. Try again.");
-            return getNewCat(name);
-        }
     }
 
     public void executeFind(LinkedList<Panthera> catList) {
@@ -139,17 +136,18 @@ and added to the menu.
         String name = input.nextLine();
         
         for (int i = 0; i < catList.size(); i++) {
-            if (name.toUpperCase() == catList.get(i).name().toUpperCase())
+            if (name.toUpperCase().equals(catList.get(i).name().toUpperCase())) {
                 catList.remove(i);
-            else {
-                System.out.print("There is no cat named " + name + " to be deleted. Try again");
-                executeDelete(catList);
+                return;
             }
         }
+        System.out.println("There is no cat named " + name + " to be deleted. Try again");
+        executeDelete(catList);
     }
 
     // create a cat, if it's unique
     public void executeCreate(LinkedList<Panthera> catList) {
+        boolean existing = false;
         // get the name
         System.out.print("Enter the name of the cat to be created: ");
         String name = input.nextLine();
@@ -158,10 +156,16 @@ and added to the menu.
             Panthera cat = getNewCat(name);
             catList.add(cat);
         }
+        else {
+            for (int i = 0; i < catList.size(); i++) {
+                if (name.toUpperCase().equals(catList.get(i).name().toUpperCase()))
+                    existing = true;
+                else   
+                    existing = false;
+            }
 
-        for (int i = 0; i < catList.size(); i++) {
-            if (name.toUpperCase() == catList.get(i).name().toUpperCase()) {
-                System.out.print("Another cat already has this name. Please enter a different name.");
+            if (existing) {
+                System.out.println("Another cat already has this name. Please enter a different name.");
                 executeCreate(catList);
             }
             else { 
